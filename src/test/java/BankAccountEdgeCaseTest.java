@@ -9,7 +9,7 @@ public class BankAccountEdgeCaseTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             account.withdraw(600); // Exceeds balance
         });
-        assertEquals("Insufficient balance", exception.getMessage());
+        assertEquals("Insufficient funds", exception.getMessage());
     }
 
     @Test
@@ -18,7 +18,7 @@ public class BankAccountEdgeCaseTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             account.withdraw(-50); // Negative amount
         });
-        assertEquals("Amount must be positive", exception.getMessage());
+        assertEquals("Withdraw amount must be positive", exception.getMessage());
     }
 
     @Test
@@ -27,7 +27,7 @@ public class BankAccountEdgeCaseTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             account.deposit(-100); // Invalid negative deposit
         });
-        assertEquals("Deposit amount must be greater than zero", exception.getMessage());
+        assertEquals("Deposit amount must be positive", exception.getMessage());
     }
 
     @Test
@@ -36,6 +36,6 @@ public class BankAccountEdgeCaseTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             account.deposit(0); // Zero deposit
         });
-        assertEquals("Deposit amount must be greater than zero", exception.getMessage());
+        assertEquals("Deposit amount must be positive", exception.getMessage());
     }
 }
