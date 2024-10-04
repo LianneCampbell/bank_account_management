@@ -13,7 +13,11 @@ public class BankAccount {
         }
         this.balance = initialBalance;
         this.transactionHistory = new ArrayList<>();
-        logTransaction("Account created with initial balance: " + initialBalance);
+
+        // Add the initial account creation event to transaction history
+        String creationMessage = "Account created with initial balance: " + initialBalance;
+        transactionHistory.add(creationMessage); // Record in transaction history
+        logTransaction(creationMessage); // Log to the file
     }
 
     public void deposit(double amount) {
@@ -21,8 +25,9 @@ public class BankAccount {
             throw new IllegalArgumentException("Deposit amount must be positive");
         }
         balance += amount;
-        transactionHistory.add("Deposited: " + amount + ", New Balance: " + balance);
-        logTransaction("Deposited: " + amount + ", New Balance: " + balance);
+        String depositMessage = "Deposited: " + amount + ", New Balance: " + balance;
+        transactionHistory.add(depositMessage); // Add to transaction history
+        logTransaction(depositMessage); // Log to the file
     }
 
     public void withdraw(double amount) {
@@ -33,8 +38,9 @@ public class BankAccount {
             throw new IllegalArgumentException("Insufficient funds");
         }
         balance -= amount;
-        transactionHistory.add("Withdrew: " + amount + ", New Balance: " + balance);
-        logTransaction("Withdrew: " + amount + ", New Balance: " + balance);
+        String withdrawalMessage = "Withdrew: " + amount + ", New Balance: " + balance;
+        transactionHistory.add(withdrawalMessage); // Add to transaction history
+        logTransaction(withdrawalMessage); // Log to the file
     }
 
     public double getBalance() {
