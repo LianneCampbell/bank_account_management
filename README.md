@@ -12,6 +12,8 @@ The application includes a user-friendly CLI that allows users to interact with 
 - **Deposit**: Enables users to deposit a specified amount into an existing account.
 - **Withdraw**: Allows users to withdraw a specified amount from an existing account, provided there are sufficient funds.
 - **Check Balance**: Displays the current balance of a specified account.
+- **Transfer to Savings**: Transfers from main account to savings account.
+- **Check Savings Balance**: Check the savings account balance with interest.
 - **View Transaction History**: Shows a list of all transactions (deposits, withdrawals) made on an account.
 - **Exit**: Closes the application.
 

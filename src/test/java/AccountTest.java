@@ -13,24 +13,24 @@ class AccountTest {
 
     @Test
     void testDeposit() {
-        account.deposit(1000);
-        assertEquals(6000, account.getBalance());
+        Account.deposit(1000);
+        assertEquals(6000, Account.getBalance());
     }
 
     @Test
     void testWithdrawSuccess() {
         account.withdraw(3000);
-        assertEquals(2000, account.getBalance());
+        assertEquals(2000, Account.getBalance());
     }
 
     @Test
     void testWithdrawInsufficientFunds() {
         account.withdraw(6000);
-        assertEquals(5000, account.getBalance());  // Balance should remain unchanged
+        assertEquals(5000, Account.getBalance());  // Balance should remain unchanged
     }
 
     @Test
     void testCheckBalance() {
-        assertEquals(5000, account.getBalance());
+        assertEquals(5000, Account.getBalance());
     }
 }

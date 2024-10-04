@@ -9,7 +9,7 @@ public class BankAccount {
 
     public BankAccount(double initialBalance) {
         if (initialBalance < 0) {
-            throw new IllegalArgumentException("Initial balance must be non-negative");
+            throw new IllegalArgumentException("\nInitial balance must be non-negative");
         }
         this.balance = initialBalance;
         this.transactionHistory = new ArrayList<>();
@@ -22,7 +22,7 @@ public class BankAccount {
 
     public void deposit(double amount) {
         if (amount <= 0) {
-            throw new IllegalArgumentException("Deposit amount must be positive");
+            throw new IllegalArgumentException("\nDeposit amount must be positive");
         }
         balance += amount;
         String depositMessage = "Deposited: " + amount + ", New Balance: " + balance;
@@ -32,10 +32,10 @@ public class BankAccount {
 
     public void withdraw(double amount) {
         if (amount <= 0) {
-            throw new IllegalArgumentException("Withdraw amount must be positive");
+            throw new IllegalArgumentException("\nWithdraw amount must be positive");
         }
         if (amount > balance) {
-            throw new IllegalArgumentException("Insufficient funds");
+            throw new IllegalArgumentException("\nInsufficient funds");
         }
         balance -= amount;
         String withdrawalMessage = "Withdrew: " + amount + ", New Balance: " + balance;
@@ -49,6 +49,11 @@ public class BankAccount {
 
     public List<String> getTransactionHistory() {
         return transactionHistory;
+    }
+
+    public void addSavingsTransaction(String message) {
+        transactionHistory.add(message);
+        logTransaction(message);
     }
 
     private void logTransaction(String message) {
